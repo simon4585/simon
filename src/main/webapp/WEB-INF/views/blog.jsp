@@ -8,24 +8,55 @@
 <meta charset="UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scaleable=no">
-<title>work</title>
+<title>Blog</title>
 <link rel="shortcut icon" href="/images/favicon/favicon.ico">
 <link rel="apple-touch-icon-precomposed"
 	href="/images/favicon/home-touch-icon.png">
 <link rel="stylesheet" type="text/css" href="/resources/css/reset.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/common.css">
 <style>
+/* BLOG 영역 CSS */
+.blog-section{
+margin-top:77px;
+}
+.blog-section .sec-tit{
+margin-bottom:47px;
+text-align:center;
+}
+.blog-section .blog-list li{
+width:100%;
+margin-top:45px;
+}
+.blog-section .blog-list li:first-child{
+margin-top:0;
+}
+.blog-section .blog-list li img{
+display:block;
+width:100%;
+max-width:100%;
+height:auto;
+}
+.blog-section .blog-list li time{
+display:block;
+margin:11px 0 10px 0;
+font-size:11px;
+color:#9e9e9e;
+}
+.blog-section .blog-list li h3{
+color:#424242;
+font-weight:normal;
+line-height:1.6;
+}
 </style>
 <script src="/resources/js/jquery.min.js"></script>
 <script src="/resources/js/common.js"></script>
 <!-- 사용자 스크립트 -->
 <script>
-
+	
 </script>
 </head>
-</head>
 <body>
-<!-- 더미 데이터:CSS작업전 내용 -->
+	<!-- 더미 데이터:CSS작업전 내용 -->
 	<div id="wrap">
 		<header class="header cfixed">
 			<h1 class="logo">
@@ -43,8 +74,23 @@
 			<span class="menu-toggle-btn"> <span></span> <span></span> <span></span>
 			</span>
 		</header>
-		
-<footer class="footer">
+		<section class="blog-section">
+			<div class="container">
+				<h2 class="sec-tit">BLOG</h2>
+				<ul class="blog-list">
+					<li><a href="#"><img src="/resources/images/asd.jpg" alt=""></a>
+						<time datetime="2020-5-26">june 26, 2020</time> <a href=""><h3>타임스페이스는
+								사용자 중심의 웹페이지를 제작하는 회사 입니다.</h3></a></li>
+					<li><a href="#"><img src="/resources/images/asd.jpg" alt=""></a>
+						<time datetime="2020-5-26">june 26, 2020</time> <a href=""><h3>타임스페이스는
+								사용자 중심의 웹페이지를 제작하는 회사 입니다.</h3></a></li>
+					<li><a href="#"><img src="/resources/images/asd.jpg" alt=""></a>
+						<time datetime="2020-5-26">june 26, 2020</time> <a href=""><h3>타임스페이스는
+								사용자 중심의 웹페이지를 제작하는 회사 입니다.</h3></a></li>
+				</ul>
+			</div>
+		</section>
+		<footer class="footer">
 			<p class="copyright">LOGO</p>
 		</footer>
 	</div>
