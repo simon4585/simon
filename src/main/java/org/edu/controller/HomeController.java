@@ -20,16 +20,45 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	/**
-	 * html5 테스트용 파일 입니다.
-	 * @param locale
-	 * @param model
-	 * @return
+	 * we are 테스트용 파일 입니다.
 	 */
-	@RequestMapping(value = "/htmltest", method = RequestMethod.GET)
-	public String htmltest(Locale locale, Model model) {
+	@RequestMapping(value = "/weare", method = RequestMethod.GET)
+	public String weare(Locale locale, Model model) {
 		
-		return "htmltest";
+		return "weare";
 	}
+	
+	/**
+	 * work 테스트용 파일 입니다.
+	 */
+	@RequestMapping(value = "/work", method = RequestMethod.GET)
+	public String work(Locale locale, Model model) {
+		
+		return "work";
+	}
+	
+	/**
+	 * blog 테스트용 파일 입니다.
+	 */
+	@RequestMapping(value = "/blog", method = RequestMethod.GET)
+	public String blog(Locale locale, Model model) {
+		
+		return "blog";
+	}
+	
+	/**
+	 * contact us 테스트용 파일 입니다.
+	 */
+	@RequestMapping(value = "/contactus", method = RequestMethod.GET)
+	public String contactus(Locale locale, Model model) {
+		
+		return "contactus";
+	}
+	
+	
+	
+	
+	
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
