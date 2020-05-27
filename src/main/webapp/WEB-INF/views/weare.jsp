@@ -49,11 +49,11 @@
 }
 
 .promotion-section .promo-list li:first-child {
-	margin-top: -30px;
+	margin-top: 0px;
 }
 
 .promotion-section .promo-list li img {
-	height: 52px;
+	height: 102px;
 }
 
 .promotion-section .promo-list li h3 {
@@ -64,11 +64,30 @@
 
 .promotion-section .promo-list li p {
 	font-size: 14px;
-	font-family: "궁서"; color : #616161;
+	font-family: "궁서";
+	color: #616161;
 	line-height: 1.5;
 	color: #616161;
 }
-
+/* 태블릿용 CSS */
+@media all and (min-width:768px) {
+.display-section {
+margin-top:95px;
+}
+/* 태블릿 we are 내용 영역 */
+.promotion-section{
+  margin-top:110px;
+  }
+  .promotion-section .promo-list li{
+  float:left; /*세로로 나열된 컨텐츠를 가로로 배치하는 역할*/
+  width:23.046875%; /* 177px ÷ 768px*/
+  margin-left:2.604166666666667%; 
+  /* 20px ÷ 768px*/
+  margin-top:0;
+  }
+  .promotion-section .promo-list li:first-child {
+  margin-left:0;
+  }
 </style>
 <script src="/resources/js/jquery.min.js"></script>
 <script src="/resources/js/common.js"></script>
