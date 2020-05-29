@@ -47,6 +47,15 @@ public class HomeController {
 	}
 	
 	/**
+	 * work 테스트용 파일 입니다.
+	 */
+	@RequestMapping(value = "/slide", method = RequestMethod.GET)
+	public String slide(Locale locale, Model model) {
+		
+		return "slide";
+	}
+	
+	/**
 	 * contact us 테스트용 파일 입니다.
 	 */
 	@RequestMapping(value = "/contactus", method = RequestMethod.GET)

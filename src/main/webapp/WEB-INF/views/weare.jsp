@@ -115,8 +115,14 @@ margin-top:95px;
   left:-100px;
   width:2px;
   height:44px;
-  background:#e64646;
+  background:#4d68ea;
   content:"";
+  }
+  /* pc we are 내용 영역 css */
+  .promotion-section .promo-lisy li {
+  width:23.674911111%;
+  margin-left:1.7667844444%;
+  }
   }
 </style>
 <script src="/resources/js/jquery.min.js"></script>

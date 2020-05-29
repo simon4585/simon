@@ -64,7 +64,24 @@ line-height:1.6;
   .blog-section .blog-list li:first-child{
   margin-left:0;
   }
-
+/* pc용 blog 영역 CSS */
+@media all and (min-width:1132px) {
+.blog-section .sec-tit{
+  float:left;
+  margin-bottom:0;
+  }
+  .blog-section .blog-list{
+  float:right;
+  width:74.5583038869258%;
+  
+  }
+  .blog-section .blog-list li{
+  width:31.75355450236967%;
+  
+  margin-left:2.369668246445498%;
+  
+  }
+  }
 </style>
 <script src="/resources/js/jquery.min.js"></script>
 <script src="/resources/js/common.js"></script>
@@ -108,6 +125,7 @@ line-height:1.6;
 				</ul>
 			</div>
 		</section>
+		
 		<footer class="footer">
 			<p class="copyright">LOGO</p>
 		</footer>
