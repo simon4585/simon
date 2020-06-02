@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <!-- 위 뷰포트 메타태그 값은 모바일 기기에서 화면을 최적화 시키는 기능이 있음(필수) -->
-<title>시몽</title>
+<title>반응형웹의구조</title>
 <style>
 .center {
 	margin: 0 auto;
@@ -307,7 +307,7 @@ body footer p small a:hover, body footer p small a:active {
 }
 
 ::selection {
-	background-color: red;
+	background-color: #eee7dd;
 	color: #542e1c;
 }
 
@@ -315,7 +315,6 @@ body footer p small a:hover, body footer p small a:active {
 	background-color: #eee7dd;
 	color: #542e1c;
 }
-
 /* 태블릿: 960 이하 */
 @media all and (max-width: 960px) {
 	body section#contents li, .row .col-1, .row .col-2, .row .col-3, .row .col-4,
@@ -334,7 +333,7 @@ body footer p small a:hover, body footer p small a:active {
 	body section#contents {
 		margin-top: 90px;
 	}
-	/* nav > ul { display: none;} */
+	
 	body header {
 		z-index: 999;
 	}
@@ -353,6 +352,7 @@ body footer p small a:hover, body footer p small a:active {
 		position: absolute;
 		right: 0px;
 	}
+	nav > ul { display: none;}
 	body header .row #gnb {
 		position: static;
 	}
@@ -361,46 +361,78 @@ body footer p small a:hover, body footer p small a:active {
 		width: 100%;
 	}
 	body header .row #gnb ul li {
-		float: none;
-		margin-right: 0;
-		margin-bottom: 1px;
-		border-top: 1px solid #555;
-		border-bottom: 1px solid #555;
-		padding: 10px 30px;
-		background-color: rgba(56, 56, 56, 1);
+	float: none;
+	margin-right: 0;
+	margin-bottom: 1px;
+	border-top: 1px solid #555;
+	border-bottom: 1px solid #555;
+	padding: 10px 30px;
+	background-color: rgba(56,56,56,1);
 	}
-	body header .row #gnb ul li:hover, body header .row #gnb ul li:active {
-		background-color: rgba(0, 0, 0, 1);
+	body header .row #gnb ul li:hover,
+	body header .row #gnb ul li:active {
+	background-color: rgba(0,0,0,1);
 	}
 	body header .row #gnb ul li a {
-		color: #fff;
-		text-shadow: none;
+	color: #fff;
+	text-shadow: none;
 	}
-	section#contents #main img, section#contents #sub img {
-		width: 90%;
-		padding: 10px;
-		border: 1px solid #e0e0e0;
-		background: #fff;
+	section#contents #main img,
+	section#contents #sub img {
+	width: 90%;
+	padding: 10px;
+	border: 1px solid #e0e0e0;
+	background: #fff;
 	}
 	footer p {
-		padding-top: 0px !important;
-		padding-bottom: 15px !important;
-		width: 90% !important;
-		margin: 0 auto !important;
-		background: none !important;
+	padding-top: 0px !important;
+	padding-bottom: 15px !important;
+	width: 90% !important;
+	margin: 0 auto !important;
+	background: none !important;
 	}
 }
+.nivo-caption { text-align: center !important; }
 
-.nivo-caption {
-	text-align: center !important;
-}
-
+.nivoSlider {height:400px !important;}
+.nivoSlider img {height:400px !important;}
 </style>
 <script src="/resources/js/jquery.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function($) { //j쿼리 시작 : $(document).ready(function(){ }); == $(function(){ }); 과 동일
-
+	//모바일메뉴 로딩시
+	var pull = $('#pull');
+	var menu = $('nav > ul');
+	$(pull).on('click', function(e) {
+		var w = $(window).width();
+		if(w<960) {
+			if(menu.is(':visible')) {
+				menu.slideToggle("fast");
+				return;
+			}
+			if(menu.is(':hidden')) {
+				menu.slideToggle("slow");
+				return;
+			}
+		}
+	});//click 이벤트 끝
+	//모바일 토클에 대한 스타일 -> PC에서는 없앤다.
+	$(window).resize(function() {
+		// alert(); //디버그
+		var w = $(window).width();
+		var menu = $('nav > ul');
+		if(w>960) {
+			menu.removeAttr('style');
+		}else{
+			
+		}
+		return;
 	});
+	
+	
+	
+	});
+	
 </script>
 </head>
 <body>
@@ -426,9 +458,33 @@ body footer p small a:hover, body footer p small a:active {
 		</div>
 	</header>
 	<!-- e:header-->
+	<script src="/resources/js/jquery.nivo.slider.js"></script>
+ 	<link href="/resources/css/nivo-slider.css" media="screen" rel="stylesheet" type="text/css">
+ 	<script type="text/javascript">
+ 	jQuery(function($) {
+ 		$('#slider').nivoSlider({
+            effect: 'slideInLeft',
+            directionNav: true,
+            controlNav: false,
+            pauseOnHover: false,
+            prevText: '<span style="font-size:30px;color:#fff;padding-left:10px;">&lt;</span>',
+			  nextText: '<span style="font-size:30px;color:#fff;padding-right:10px;">&gt;</span>',
+      });
+    $('.nivo-prevNav').on('mouseover', function(){
+         $('#slider img').attr("data-transition","slideInRight");
+    });
+    $('.nivo-nextNav').on('mouseover', function(){
+         $('#slider img').attr("data-transition","slideInLeft");
+    });
+});
+ 		
+    </script>
 	<section class="banner_slider">
 		<div id="slider" class="nivoSlider">
 			<img src="/resources/images/asd.jpg" title="슬라이드1" />
+			<img src="/resources/images/q.jpg" title="슬라이드2" />
+			<img src="/resources/images/w.jpg" title="슬라이드3" />
+			<img src="/resources/images/e.jpg" title="슬라이드4" />
 		</div>
 	</section>
 	<section id="contents" class="row">
@@ -460,13 +516,13 @@ body footer p small a:hover, body footer p small a:active {
 				사이트 구성이 많습니다. 관심있게 살펴봐 주시기 바랍니다.
 			</h3>
 			<ul>
-				<li class="col-3"><img src="/resources/images/asd.jpg" alt=""
-					width="218" height="325" />
+				<li class="col-3"><img src="/resources/images/asd.jpg"
+					alt="" width="218" height="325" />
 					<h5>글로벌윙사이트 리뉴얼 완료</h5>
 					<p>사이트URL: www.globalwing.co.kr ( 제로보드xe기반 ) -> 워드프레스 기반으로
 						리뉴얼완료 글로벌윙 사이트 메인시안</p></li>
-				<li class="col-3"><img src="/resources/images/asd.jpg" alt=""
-					width="218" height="326" />
+				<li class="col-3"><img src="/resources/images/asd.jpg"
+					alt="" width="218" height="326" />
 					<h5>크리웰터 사이트 오픈완료.</h5>
 					<p>크리웰터 사이트 작업중 입니다. 워드프레스 기반의 영문홈페이지 입니다. 오픈되었습니다.</p></li>
 				<li class="col-6 last"><img src="/resources/images/asd.jpg"

@@ -42,7 +42,8 @@ color:white !important;
 	<div id="wrap">
 		<header class="header cfixed">
 			<h1 class="logo">
-				<a href="">LOGO</a>
+				<a href=""><img src="/resources/images/logo2.png" alt=""></a>
+				
 			</h1>
 			<nav>
 				<ul class="gnb">
@@ -199,7 +200,6 @@ color:white !important;
 				</div>
 			</section>
 			<footer class="footer">
-			<p class="copyright">LOGO</p>
 				<!--  구글 지도 넣기 -->
 				<iframe
 					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3193.1908531424174!2d127.18028131558675!3d36.83790497994078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b293c64087a5b%3A0x1873dee0e6399a00!2z67Cx7ISd66y47ZmU64yA7ZWZ6rWQ!5e0!3m2!1sko!2skr!4v1513569521608"
