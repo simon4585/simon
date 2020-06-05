@@ -2,12 +2,29 @@ package kr.or.test;
 
 import java.util.Scanner;
 
+class Tire {
+	public void run() {
+		System.out.println("일반 타이거가 굴러가유.");
+		
+	}
+	
+}
+class SnowTire extends Tire {
+	@Override
+	public void run() {
+		System.out.println("스노우 타이거가 굴러가유.");
+	}
+}
 public class HelloWorld {
 
 	String name = "백시몬";
 	
 	public static void main(String[] args) {
-		boolean run = true;
+		//snowTire클래스형 변수 snowTire 생성, new 키워드로 snowTire()매서드를 이용해서 snowTire(메모리에로딩)인스턴스 실행된 상태
+	SnowTire snowTire = new SnowTire();
+	Tire tire = snowTire;
+	tire.run();
+	/*boolean run = true;
 		int balance = 0;
 		Scanner scanner = new Scanner(System.in);
 		while(run) {
@@ -28,7 +45,7 @@ public class HelloWorld {
 			}else if(menuNum==4) {
 				run = false;
 			}
-			/*switch(menuNum) {
+			switch(menuNum) {
 			case 1:
 				System.out.print("입금액을 입력 하세요> ");
 				balance = balance + scanner.nextInt();
@@ -44,34 +61,34 @@ public class HelloWorld {
 			case 4:
 				run = false;
 				break;
-			}*/
+			}
 			System.out.println();
 		}
 		System.out.println("프로그램 while문이 종료되었습니다.");
 		//int sum = 0;
-		/*for(int i=1;i<=100;i++) {
+		for(int i=1;i<=100;i++) {
 			sum = sum + i;
-		}*/
-		/*int cnt = 1;
+		}
+		int cnt = 1;
 		while(cnt<=100) {
 			sum = sum + cnt;
 			cnt = cnt + 1;
-		}*/
+		}
 		//System.out.println("1부터 100까지의 합은: " + sum + " 입니다.");
-		/*int x = 10;
+		int x = 10;
 		int y = 5;
 		System.out.println((x>7)&&(y<=5));//true
 		System.out.println((x<7)&&(y<=5));//false
 		System.out.println((x<7)||(y<=5));//true
-*/		/*int score = 85;
+		int score = 85;
 		String result = (!(score>90))?"가":"나";
 		if(score>90) {
 			result = "가";
 		}else {
 			result = "나";
 		}
-		System.out.println(result);*/
-		/*String name = "123";
+		System.out.println(result);
+		String name = "123";
 		char var3 = 'a';
 		int num_name = Integer.parseInt(name);
 		System.out.println(num_name + "님 안녕하세요. 자바 !");*/
