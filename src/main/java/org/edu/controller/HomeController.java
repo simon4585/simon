@@ -144,7 +144,7 @@ public class HomeController {
 
 	 */
 
-	@RequestMapping(value = "/sample/home", method = RequestMethod.GET)
+	@RequestMapping(value = "/sample/", method = RequestMethod.GET)
 
 	public String sample(Locale locale, Model model) {
 
