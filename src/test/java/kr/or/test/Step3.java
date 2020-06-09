@@ -5,8 +5,8 @@ import java.util.Calendar;
 public class Step3 {
 
 	public static void main(String[] args) {
-		System.out.println("------------------------------------");
 		System.out.println("외부 라이브러리를 사용한 열거형-enum 자료형");
+		//열거형 -enum
 		Week today = null;
 		Calendar cal = Calendar.getInstance(); //인스턴스 cal변수 생성
 		int week = cal.get(Calendar.DAY_OF_WEEK);
