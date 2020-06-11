@@ -57,6 +57,9 @@ public class MainControler {
 		} catch (SocketException e) {
 			System.out.println("open메서드 실행 오류");
 			e.printStackTrace();
+		} finally {
+			System.out.println("이 부분은 성공/오류에 상관없이 항상 실행됩니다.");
+			
 		}
 		InetAddress address = InetAddress.getByName(TIME_SERVER);
 	    TimeInfo timeInfo = timeClient.getTime(address);
