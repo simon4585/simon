@@ -4,13 +4,17 @@ class NotExistIDException extends Exception{
    //아이디가 존재하지 않을때 예외사항 처리 내용
    //extends앞에 있는 내용은 우리가 만드는거 그 뒤에 내용은 자바에서 공급받은거
    public NotExistIDException() {} //위 클래스에 대한 생성자 메소드△
-   public NotExistIDException(String message) {}//오버로딩 매소드  
+   public NotExistIDException(String message) {
+	   super(message);
+   }//오버로딩 매소드  
 }
 
 class WrongPasswordException extends Exception{
    //패스워드 입력 오류에 대한 예외사항 처리 내용
    public WrongPasswordException() {}//위 클래스에 대한 생성자 메소드 △
-   public WrongPasswordException(String message) {}
+   public WrongPasswordException(String message) {
+	   super(message);
+   }
    
 }
 public class LoginTryCatch {
