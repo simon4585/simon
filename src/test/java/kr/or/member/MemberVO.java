@@ -1,6 +1,7 @@
 package kr.or.member;
 
 public class MemberVO {
+	//private 내부접근으로 get,set이용해야함. 데이터 무결성을 위함.
 		private String name;
 		private int age;
 		private String phoneNum;

@@ -24,6 +24,10 @@ class MemberVO {
 	public void setPhoneNum(String phoneNum) {
 		this.phoneNum = phoneNum;
 	}
+	@Override
+	public String toString() {
+		return "MemberVO [name=" + name + ", age=" + age + ", phoneNum=" + phoneNum + "]";
+	}
 	
 	
 }

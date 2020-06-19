@@ -13,7 +13,7 @@ import kr.or.member.MemberService;
 import kr.or.member.MemberVO;
 
 public class MainControler {
-
+                  // 상수변수  final 재할당 할 수 없음
 	private static final String TIME_SERVER = "pool.ntp.org";
 
 	public static void main(String[] args) throws IOException {
@@ -21,18 +21,18 @@ public class MainControler {
 		
 	    //MemberVO 클래스를 실행하기 위해 new 연산자 사용
 		MemberVO m1 = new MemberVO();  //setter 메서드를 이용해 해당 인스턴스 변수에 값을 넣어준다
-		m1.setName("홍길동");
+		m1.setName("백시몬");
 		m1.setAge(45);
 		m1.setPhoneNum("000-0000-0000");
 		
 		//마찬가지로 다른 MemberVO객체(instance)를 생성
 		MemberVO m2 = new MemberVO();
-		m2.setName("성춘향");
+		m2.setName("백시몬");
 		m2.setAge(100);
 		m2.setPhoneNum("111-1111-1111");
 		
 		MemberVO m3 = new MemberVO();
-		m3.setName("각시탈");
+		m3.setName("백시몬");
 		m3.setAge(3);
 		m3.setPhoneNum("222-2222-2222");
 		
@@ -40,6 +40,7 @@ public class MainControler {
 		MemberVO[] members = new MemberVO[3];
 		
 		//MemberVO[]배열클래스 참조index에 m1,m2,m3를 넣어준다
+		//배열은 0부터 시작.
 		members[0] = m1;
 		members[1] = m2;
 		members[2] = m3;
@@ -59,7 +60,7 @@ public class MainControler {
 			e.printStackTrace();
 		} finally {
 			System.out.println("이 부분은 성공/오류에 상관없이 항상 실행됩니다.");
-			
+			//finally 무조건 출력됨
 		}
 		InetAddress address = InetAddress.getByName(TIME_SERVER);
 	    TimeInfo timeInfo = timeClient.getTime(address);
