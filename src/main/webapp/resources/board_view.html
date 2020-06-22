@@ -113,95 +113,40 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Starter Page</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Starter Page</li>
-            </ol>          
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-        
-    
-	<div class="col">
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">Responsive Hover Table</h3>
-
-                <div class="card-tools">
-                  <div class="input-group input-group-sm" style="width: 150px;">
-                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                    <div class="input-group-append">
-                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
-                    </div>
-                  </div>
+    <div class="box-body">
+              <form role="form">
+                <!-- text input -->
+                <div class="form-group">
+                  <label>Title</label>
+                  <input type="text" class="form-control" placeholder="홈페이지 오픈 테스트">
                 </div>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body table-responsive p-0">
-                <table class="table table-hover text-nowrap">
-                  <thead>
-                    <tr>
-                      <th>Bno</th>
-                      <th>Title</th>
-                      <th>Writer</th>
-                      <th>Regdate</th>
-                      <th>Viewcnt</th>
-                      
-                      
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>183</td>
-                      <td>홈페이지 오픈 테스트</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-success">조경철</span></td>
-                      <td>0</td>
-                    </tr>
-                    <tr>
-                      <td>219</td>
-                      <td>새로운 글을 넣습니다.</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-warning">백시몬</span></td>
-                      <td>0</td>
-                    </tr>
-                    <tr>
-                      <td>657</td>
-                      <td>새로운 글을 넣습니다1.</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-primary">백시몬</span></td>
-                      <td>3</td>
-                    </tr>
-                    <tr>
-                      <td>175</td>
-                      <td>새로운 글을 넣습니다2.</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-danger">백시몬</span></td>
-                      <td>0</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.card-body -->
+                <div class="form-group">
+                  <label>Content</label>
+                  <input type="text" class="form-control" placeholder="내용... 홈페이지 오픈 테스트" >
+                </div>
+
+                <div class="form-group">
+                  <label>Writer</label>
+                  <input type="text" class="form-control" placeholder="백시몬" >
+                </div>
+                
+              </form>
             </div>
-            <!-- /.card -->
-          </div>
-     </td>
-     </tr>
-     </table>
+       
+      
        
        
+       
+       <div class="box-footer">
+                <button type="submit" class="btn btn btn-warning">Update</button>
+                <button type="List All" class="btn btn btn-warning">Delete</button>
+                <button type="List All" class="btn btn btn-warning">List All</button>
+              </div>
            
-      </div><!-- /.container-fluid -->
+      </div>
+      <!-- /.container-fluid -->
     </div>
-    <!-- /.content-header -->
+    
 
     <!-- Main content -->
     <div class="content">
