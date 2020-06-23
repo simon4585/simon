@@ -42,7 +42,6 @@
 
 			<!-- Right navbar links -->
 			<ul class="navbar-nav ml-auto">
-				<!-- Notifications Dropdown Menu -->
 				<li class="nav-item"><a class="nav-link"
 					data-widget="control-sidebar" data-slide="true" href="#"
 					role="button"><i class="fas fa-th-large"></i></a></li>
@@ -86,17 +85,17 @@
 							class="nav-link active"> <i
 								class="nav-icon fas fa-tachometer-alt"></i>
 								<p>
-									대시보드 <i class="right fas fa-angle-left"></i>
+									Dashboard <i class="right fas fa-angle-left"></i>
 								</p>
 						</a>
 							<ul class="nav nav-treeview">
 								<li class="nav-item"><a href="#" class="nav-link active">
 										<i class="far fa-circle nav-icon"></i>
-										<p>관리자관리</p>
+										<p>관리자 관리</p>
 								</a></li>
 								<li class="nav-item"><a href="#" class="nav-link"> <i
 										class="far fa-circle nav-icon"></i>
-										<p>게시판관리</p>
+										<p>게시물 관리</p>
 								</a></li>
 							</ul></li>
 					</ul>
@@ -113,7 +112,7 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-sm-6">
-							<h1 class="m-0 text-dark">Starter Page</h1>
+							<h1 class="m-0 text-dark">DashBoard Management</h1>
 						</div>
 						<!-- /.col -->
 						<div class="col-sm-6">
@@ -125,75 +124,89 @@
 						<!-- /.col -->
 					</div>
 					<!-- /.row -->
-
-				<div class="box box-primary">
-            <div class="box-header with-border">
-              <h3 class="box-title">Quick Example</h3>
-            </div>
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form">
-              <div class="box-body">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Title</label>
-                  <input type="Enter Title" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Content</label>
-                  <input type="Enter" class="form-control" id="exampleInputPassword1" row=3 placeholder="Password">
-                  
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Writer</label>
-                  <input type="Enter Writer" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputFile">File input</label>
-                  <input type="file" id="exampleInputFile">
-
-                  <p class="help-block">Example block-level help text here.</p>
-                </div>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox"> Check me out
-                  </label>
-                </div>
-              </div>
-              <!-- /.box-body -->
-
-              <div class="box-footer">
-                <button type="submit" class="btn btn btn-warning">submit</button>
-                <button type="List All" class="btn btn-primary">List All</button>
-              </div>
-              
-            </form>
-          </div>
-
-
-
-
 				</div>
 				<!-- /.container-fluid -->
-			</div>
-			<!-- /.content-header -->
+				<div class="col-md-12">
+					<!-- general form elements disabled -->
+					<div class="card card-warning">
+						<div class="card-header">
+							<h3 class="card-title">CREATE BOARD</h3>
+						</div>
+						<!-- /.card-header -->
+						<div class="card-body">
+							<form role="form">
+								<div class="row">
+									<div class="col-sm-12">
+										<!-- text input -->
+										<div class="form-group">
+											<label>Title</label> <input type="text" class="form-control"
+												placeholder="Enter Title">
+										</div>
+									</div>
+									<div class="col-sm-12">
+										<div class="form-group">
+											<label>Content</label> 
+											<textarea class="form-control" rows="3"
+												placeholder="Enter Writer"></textarea>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-12">
+										<!-- textarea -->
+										<div class="form-group">
+											<label>Writer</label>
+											<input type="text"
+												class="form-control" placeholder="Enter ...">
+										</div>
+									</div>
 
-			<!-- Main content -->
-			<div class="content"></div>
-			<!-- /.content -->
+
+									<div class="col-sm-12">
+										<div class="form-group">
+											<label>아래 영역에 파일을 드래그 해서 업로드 가능</label>
+											<div class="col-sm-12">
+												<!-- textarea -->
+												<div class="form-group">
+													<textarea class="form-control" rows="3" disabled=""></textarea>
+												</div>
+											</div>
+											<div class="custom-file">
+												<tr>
+													<td>아래 기존 파일 업로드 창 사용가능</td>
+													<br>
+													<td><input type="file" value="파일 선택" name="file" /></td>
+												</tr>
+											</div>
+										</div>
+										<div class="buttons">
+											<button type="submit" class="btn btn-warning">Submit</button>
+											<button type="submit" class="btn btn-primary">LIST
+												ALL</button>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+						<!-- /.content-header -->
+
+						<!-- Main content -->
+						<div class="content"></div>
+						<!-- .content  -->
+					</div>
+					<!-- Control Sidebar -->
+					<aside class="control-sidebar control-sidebar-dark">
+						<!-- Control sidebar content goes here -->
+						<div class="p-3">
+							<h5>Title</h5>
+							<p>Sidebar content</p>
+							<button type="button" class="btn btn-primary btn-lg btn-block">로그아웃</button>
+						</div>
+					</aside>
+					<!-- /.control-sidebar -->
+				</div>
+			</div>
 		</div>
-		<!-- /.content-wrapper -->
-
-		<!-- Control Sidebar -->
-		<aside class="control-sidebar control-sidebar-dark">
-			<!-- Control sidebar content goes here -->
-			<div class="p-3">
-				<h5>Title</h5>
-				<p>Sidebar content</p>
-				<button type="button" class="btn btn-primary btn-lg btn-block">로그아웃</button>
-			</div>
-		</aside>
-		<!-- /.control-sidebar -->
-
 		<!-- Main Footer -->
 		<footer class="main-footer">
 			<!-- To the right -->

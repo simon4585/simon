@@ -40,7 +40,6 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-      <!-- Notifications Dropdown Menu -->
       <li class="nav-item">
         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
             class="fas fa-th-large"></i></a>
@@ -67,8 +66,8 @@
         </div>
         <div class="info">
           <a href="#" class="d-block">User02
-          <span class="right badge badge-danger">Online</span>
-          </a>
+           <span class="right badge badge-danger">Online</span>
+           </a>
         </div>
       </div>
 
@@ -84,7 +83,7 @@
           <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>대시보드
+              <p>Dashboard
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -92,13 +91,13 @@
               <li class="nav-item">
                 <a href="#" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>관리자관리</p>
+                  <p>관리자 관리</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>게시판관리</p>
+                  <p>게시물 관리</p>
                 </a>
               </li>
             </ul>
@@ -117,7 +116,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Starter Page</h1>
+            <h1 class="m-0 text-dark">DashBoard Management</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -127,16 +126,96 @@
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
+    
+     <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">멤버 검색</h3>
+                </div>
+                </div>
+                </div>
+                <div class="col-1" style="display:inline-block" >
+                        <select class="form-control">
+                          <option>--</option>
+                        </select>
+                        </div>
+                        <div class="search" style="display:inline">
+     <input type="text" placeholder="">
+<div class="button" style="display:inline">
+     <button>검색</button>
+</div>
+<div class="button" style="display:inline">
+     <button>새사용자등록</button>
+     </div>
+                        </div>
+    
+</div>
+    
+    
+    
+        <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">LIST ALL PAGE</h3>
+
+                <div class="card-tools">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>user_id</th>
+                      <th>user_name[point]</th>
+                      <th>email</th>
+                      <th>Use</th>
+                      <th>REGDATE</th>
+                      <th>level</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>user02</td>
+                      <td>user02[0]</td>
+                      <td>user02@edu.com</td>
+                      <td><span class="tag tag-success">true</span></td>
+                      <td>2019-10-15 10:41</td>
+                      <td><small class="badge badge-danger">ROLE_ADMIN</small></td>
+                    </tr>
+                  </tbody>
+            <td> <button type="submit" class="btn btn-primary">CREATE</button>
+               </td>
+           <td>
+              <nav aria-label="Contacts Page Navigation">
+            <ul class="pagination justify-content-center m-0">
+              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            </ul>
+          </nav>
+               </td>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+ 
+    
     </div>
     <!-- /.content-header -->
 
-    <!-- Main content -->
-    <div class="content">
-    
-    </div>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
+  <!-- Main content -->  
+   <div class="content">
+   
+   </div>
+   <!-- .content  -->
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -169,5 +248,6 @@
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
+
 </body>
 </html>
