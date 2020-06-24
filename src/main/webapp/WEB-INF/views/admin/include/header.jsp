@@ -91,7 +91,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/admin/member/list" class="nav-link active">
+                <a href="/admin/member/list" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>회원관리</p>
                 </a>
