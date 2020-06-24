@@ -32,9 +32,9 @@
                         </select>
                         </div>
                         <div class="search" style="display:inline">
-     <input type="text" placeholder="">
+     <input type="text" name="search_keyword" placeholder="">
 <div class="button" style="display:inline">
-     <button>검색</button>
+     <button name = "btn_search">검색</button>
 </div>
 <div class="button" style="display:inline">
      <button>새사용자등록</button>

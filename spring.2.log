@@ -1,10 +1,4 @@
-2020-06-22 10:43:49,594  WARN [org.apache.log4j.joran.action.PriorityAction] Priority element has been deprecated, please use <level> instead.
-2020-06-22 10:43:49,609  INFO [kr.or.test.Log4jTest] test라는 메서드를 사용한 PC의 아이피는:192.168.56.1
-2020-06-22 10:43:49,609 DEBUG [kr.or.test.Log4jTest] 디버그!!MemberVO [name=홍길동, age=24, phoneNum=null]
-2020-06-22 10:43:49,609  INFO [kr.or.test.Log4jTest] 인포!!
-2020-06-22 10:43:49,609  WARN [kr.or.test.Log4jTest] 워닝!!
-2020-06-22 10:43:49,609 ERROR [kr.or.test.Log4jTest] 에러!!
-2020-06-22 10:43:49,609 FATAL [kr.or.test.Log4jTest] 파탈!!
-2020-06-22 10:46:09,111  WARN [org.apache.log4j.joran.action.PriorityAction] Priority element has been deprecated, please use <level> instead.
-2020-06-22 10:46:09,126  INFO [kr.or.test.Log4jTest] test라는 메서드를 사용한 PC의 아이피는:192.168.56.1
-2020-06-22 10:46:09,126 DEBUG [kr.or.test.Log4jTest] 디버그!!MemberVO [name=홍길동, age=24, phoneNum=null]
+2020-06-24 17:16:09,836  INFO [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] Mapped "{[/sample/slide],methods=[GET]}" onto public java.lang.String org.edu.controller.HomeController.slide(java.util.Locale,org.springframework.ui.Model)
+2020-06-24 17:16:09,839  INFO [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] Mapped "{[/sample/],methods=[GET]}" onto public java.lang.String org.edu.controller.HomeController.sample(java.util.Locale,org.springframework.ui.Model)
+2020-06-24 17:16:09,913  INFO [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter] Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@cd2dae5: startup date [Wed Jun 24 17:16:09 KST 2020]; root of context hierarchy
+2020-06-24 17:16:09,948  INFO [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter] Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@cd2dae5: startup date [Wed Jun 24 17:16:09 KST 2020]; root of context hierarchy

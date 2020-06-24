@@ -17,10 +17,12 @@ public class OpenApi {
 		// 누락되는 것을 방지하기 위해서 BufferedReader 사용
 		BufferedReader br = null; // HRD넷에서 전송받은 데이터를 일시저장하는 저수지와 같은 역할
 		String urlstr = "http://www.hrd.go.kr/jsp/HRDP/HRDPO00/HRDPOA60/HRDPOA60_1.jsp?returnType=XML"
-				+"&authKey=인증키부분&pageNum=1&pageSize=10"
-				+"&srchTraStDt=20200622&srchTraEndDt=20200922&outType=1&sort=ASC&sortCol=TR_STT_DT";
+				+ "&authKey=qhZhf607cb46Vfe76hckCMm5qfkIw435"
+				+ "&pageNum=1"
+				+ "&pageSize=10&srchTraStDt=20200501&srchTraEndDt=20201231&outType=1&sort=ASC&sortCol=TR_STT_DT&srchTraArea1=44&srchTraArea2=44133";
 		try {
 			URL url = new URL(urlstr);
+			
 			// 클래스로 형변환
 			HttpURLConnection urlconnection = (HttpURLConnection) url.openConnection();
 			urlconnection.setRequestMethod("GET");
