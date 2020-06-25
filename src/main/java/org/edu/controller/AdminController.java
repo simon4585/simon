@@ -20,7 +20,7 @@ public class AdminController {
    }
    
    /**
-    * 게시물관리 리스트 입니다.
+    * 게시물관리 리스트 입니다. 
     */
    @RequestMapping(value = "/admin/board/list", method = RequestMethod.GET)
    public String boardList(Locale locale, Model model) {//Local=다국어지원,Model=데이터베이스와연동

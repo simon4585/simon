@@ -18,7 +18,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<insert id="insertMember">
 		insert into tbl_member (user_id,user_pw,user_name,email,point,enabled,levels,reg_date) 
-		values (#{user_id},#{user_pw},#{user_name},#{email},#{point},#{enabled},#{levels}now()) 
+		values (#{user_id},#{user_pw},#{user_name},#{email},#{point},#{enabled},#{levels},now()) 
 	</insert>
 	<select id="selectMember" resultType="org.edu.vo.MemberVO">
 	<![CDATA[  
