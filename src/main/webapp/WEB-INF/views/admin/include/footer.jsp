@@ -32,21 +32,21 @@
 <script src="/resources/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/resources/dist/js/adminlte.min.js"></script>
+
 <!-- footer.jsp 하단에 저장 : 아래 [클래스명을입력]부분을 학생이 채우세요... -->
 <script>
-$(document).ready(function() {
+$(document).ready(function() {//location.pathname현재 페이지의 파일이름, 경로를 리턴해준다
     var current = location.pathname;
-    $('.nav-treeview li a').each(function(){
-        var $this = $(this);
-        //alert(curren);//디버그코드
-        if(current=="/admin"||current=="/admin/"){
+    $(".nav-treeview li a").each(function(){
+        var $this = $(this);//가독성을 위해서 
+        if(current=="/admin" || current=="/admin/") {
            
-        }else{
-        if($this.attr('href').includes(current) == true){
+        }else//attr()을 통해서는  element가 가지는 속성값이나 정보를 조회(style,src)하거나세텅하는 형식의업무. prop()을통해서는 element가 가지는 실제적인 상태(활성화,체크,선택여부)를 제어하는 업무를하는것이좋다
+        //if($this.attr('href').includes(current) == true){
+        if($this.attr('href').indexOf(current) != -1){
             $this.addClass('active');
         }else{
            $this.removeClass('active');
-        }
         }
     })
  });

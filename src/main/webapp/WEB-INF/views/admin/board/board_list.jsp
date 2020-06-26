@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ include file="../include/header.jsp" %>
 <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -70,34 +70,15 @@
                     </tr>
                   </thead>
                   <tbody>
+                   <c:forEach items="${boardList}" var="boardVO" varStatus="status">
                     <tr>
-                      <td>130</td>
-                      <td>홈페이지 오픈 테스트</td>
-                      <td>kim ilguk</td>
-                      <td><span class="tag tag-success">2019-10-19 08:58</span></td>
-                      <td><span class="badge badge-danger right">1</span></td>
+                      <td>${boardVO.bno}</td>
+                      <td>${boardVO.title}</td>
+                      <td>${boardVO.writer}</td>
+                      <td><span class="tag tag-success">${boardVO.regdate}</span></td>
+                      <td><span class="badge badge-danger right">${boardVO.view_count}</span></td>                    
                     </tr>
-                    <tr>
-                      <td>124</td>
-                      <td>새로운 글을 넣습니다.</td>
-                      <td>user00</td>
-                      <td><span class="tag tag-warning">2019-10-19 08:58</span></td>
-                      <td><span class="badge badge-danger right">0</span></td>
-                    </tr>
-                    <tr>
-                      <td>123</td>
-                      <td>새로운 글을 넣습니다.</td>
-                      <td>user00</td>
-                      <td><span class="tag tag-primary">2019-10-19 08:58</span></td>
-                      <td><span class="badge badge-danger right">0</span></td>
-                    </tr>
-                    <tr>
-                      <td>122</td>
-                      <td>새로운 글을 넣습니다.</td>
-                      <td>user00</td>
-                      <td><span class="tag tag-danger">2019-10-19 08:58</span></td>
-                      <td><span class="badge badge-danger right">0</span></td>
-                      </tr>
+                   </c:forEach>
                   </tbody>
             <td> <button type="submit" class="btn btn-primary">CREATE</button>
                </td>
