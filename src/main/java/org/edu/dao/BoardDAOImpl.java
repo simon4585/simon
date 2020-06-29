@@ -45,5 +45,11 @@ public void deleteBoard(Integer bno) throws Exception {
 	
 }
 
+
+@Override
+public BoardVO viewBoard(Integer bno) throws Exception {
+	return sqlSession.selectOne(mapperQuery +".viewBoard" , bno);
+}
+
    
 }

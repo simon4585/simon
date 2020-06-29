@@ -18,7 +18,7 @@ public class MemberDAOImpl implements IF_MemberDAO {
    
    @Inject
    private SqlSession sqlSession;
-   
+   	
    
 
    @Override
@@ -42,6 +42,12 @@ public class MemberDAOImpl implements IF_MemberDAO {
       sqlSession.delete(mapperQuery + ".deleteMember", user_id);
 
    }
+
+@Override
+public MemberVO viewMember(String user_id) throws Exception {
+ return sqlSession.selectOne(mapperQuery+".viewMember", user_id);
+	
+}
    
    
    
