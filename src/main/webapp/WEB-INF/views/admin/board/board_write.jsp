@@ -31,7 +31,7 @@
 						</div>
 						<!-- /.card-header -->
 						<div class="card-body">
-							<form role="form" action="/admin/board/write" method="post" enctype="multipart/form-date">
+							<form role="form" action="/admin/board/write" method="post" encType= "multipart/form-data">
 								<div class="row">
 									<div class="col-sm-12">
 										<!-- text input -->
@@ -80,7 +80,6 @@
 										<div class="buttons">
 											<button type="submit" class="btn btn-warning">Submit</button>
 											<a href="/admin/board/list" class="btn btn-outline-danger">취소</a>
-							
 										</div>
 									</div>
 								</div>

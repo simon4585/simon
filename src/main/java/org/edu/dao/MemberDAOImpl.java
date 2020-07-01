@@ -40,6 +40,7 @@ public class MemberDAOImpl implements IF_MemberDAO {
    @Override
    public void deleteMember(String user_id) throws Exception {
       sqlSession.delete(mapperQuery + ".deleteMember", user_id);
+      //스프링에서 제공해줌     //쿼리                 //실행               //매개변수 
 
    }
 
