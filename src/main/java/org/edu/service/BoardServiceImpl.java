@@ -7,13 +7,15 @@ import javax.inject.Inject;
 import org.edu.dao.IF_BoardDAO;
 import org.edu.vo.BoardVO;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class BoardServiceImpl implements IF_BoardService{
    
    @Inject
    private IF_BoardDAO boardDAO;
-
+   
+   @Transactional
    @Override
    public void insertBoard(BoardVO boardVO) throws Exception {
       boardDAO.insertBoard(boardVO);
@@ -36,17 +38,22 @@ public class BoardServiceImpl implements IF_BoardService{
       boardDAO.updateBoard(boardVO);
       
    }
-
+   @Transactional
    @Override
    public void deleteBoard(Integer bno) throws Exception {
+      boardDAO.deleteAttach(bno);
       boardDAO.deleteBoard(bno);
    }
 
    @Override
    public BoardVO viewBoard(Integer bno) throws Exception {
-   
       return boardDAO.viewBoard(bno);
    }
+
+@Override
+public List<String> selectAttach(Integer bno) throws Exception {
+   return boardDAO.selectAttach(bno);
+}
 
  
    //private String name = new String("홍길동");

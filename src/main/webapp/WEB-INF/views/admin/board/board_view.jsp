@@ -56,13 +56,23 @@
 											<label>Writer</label> <br> ${boardVO.writer}
 										</div>
 									</div>
+									
+									<div class="col-sm-12">
+										<!-- text input -->
+										<div class="form-group">
+											<label>FileDownload</label> <br> 
+											<a href="/download?filename=${boardVO.files[0]}">${boardVO.files[0]}</a>
+											
+										</div>
+									</div>
+									
 									<div class="buttons">
 										<a href="/admin/board/update?bno=${boardVO.bno}" class="btn btn-warning">UPDATE</a>
 										<button type="submit" class="btn btn-danger">DELETE</button>
 										<a href="/admin/board/list" class="btn btn-primary">LIST ALL</a>
 									</div>
 								</div>
-                           <input type="hidden" name="bno" value="${boardVO.bno}">
+							<input type="hidden" name="bno" value="${boardVO.bno}">
 							</form>
 						</div>
 						<!-- /.content-header -->

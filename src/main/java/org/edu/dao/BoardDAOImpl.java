@@ -14,6 +14,7 @@ public class BoardDAOImpl implements IF_BoardDAO {
    private static String mapperQuery = "org.edu.dao.IF_BoardDAO";
    @Inject
    private SqlSession sqlSession;
+   
 @Override
 public void insertBoard(BoardVO boardVO) throws Exception {
    sqlSession.insert(mapperQuery + ".insertBoard", boardVO);
@@ -44,5 +45,15 @@ public void insertAttach(String fullname) throws Exception {
    sqlSession.insert(mapperQuery + ".insertAttach", fullname);
    
 }
-   
+@Override
+public List<String> selectAttach(Integer bno) throws Exception {
+	return sqlSession.selectList(mapperQuery+ ".selectAttach", bno);
+}
+@Override
+public void deleteAttach(Integer bno) throws Exception {
+	sqlSession.delete(mapperQuery +".deleteAttach", bno);
+	
+}
+
+ 
 }

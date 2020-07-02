@@ -4,10 +4,13 @@
    xmlns:context="http://www.springframework.org/schema/context"
    xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
    xmlns:aop="http://www.springframework.org/schema/aop"
+   xmlns:tx="http://www.springframework.org/schema/tx"
+   
    xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
         http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.1.xsd">
    <!-- jdbd태그를 사용하기 위해서 가져옴 -->
@@ -33,8 +36,8 @@
          <value></value>
       </list>
    </property>
-   </bean>
-     -->
+   </bean> --> 
+     
    <!-- 로컬 mysql log4jdbc 설정전
       <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
       <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
@@ -112,7 +115,10 @@
     <context:component-scan base-package="org.edu.aop"></context:component-scan>
    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
     <aop:config></aop:config>
-      
-      
-      
+      <!-- 대표적으로 게시판 입력 트랜잭션에서 이용 -->
+      <bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>	 
+      <tx:annotation-driven />
    </beans>
