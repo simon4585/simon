@@ -1,6 +1,7 @@
 package org.edu.controller;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
@@ -47,6 +48,20 @@ public class AdminController {
          response.setHeader("Content-Disposition", "attachment; filename=" + fileName);
          return new FileSystemResource(file);
          
+      }
+      /**
+       * 파일 업로드 메서드(공통)
+     * @throws IOException 
+       */
+      public String[] fileUpload(MultipartFile file) throws IOException {
+    	  String originalName = file.getOriginalFilename(); //jsp에서 전송받은 파일의 이름
+          UUID uid = UUID.randomUUID(); //랜덤문자 구하기
+          String saveName = uid.toString() + "." + originalName.split("\\.")[1]; // 한글 파일명 처리 때문임.
+          String[] files = new String[] {saveName}; //형변환 get set을 쓰려고(배열로 선언해서 스트링으로 형변환)
+          byte[] fileData = file.getBytes(); //67번째줄 보드롸이트 파일(매개변수) 받음
+          File target = new File(uploadPath, saveName);//31~33 업로드 경로 변수값으로 받음 저장 될 위치 지정
+          FileCopyUtils.copy(fileData,target);  
+    	  return files;
       }
       
    /**
@@ -100,41 +115,49 @@ public class AdminController {
             //첨부파일 없이 저장
             boardService.insertBoard(boardVO);
       }else {
-         String originalName = file.getOriginalFilename(); //jsp에서 전송받은 파일의 이름
-         UUID uid = UUID.randomUUID(); //랜덤문자 구하기
-         String saveName = uid.toString() + "." + originalName.split("\\.")[1]; // 한글 파일명 처리 때문임.
-         String[] files = new String[] {saveName}; //형변환 get set을 쓰려고(배열로 선언해서 스트링으로 형변환)
-         boardVO.setFiles(files); //셋으로 파일을 저장했기때문에 보낼 수 있음.
-         boardService.insertBoard(boardVO);
-         //위는 DB에 첨부파일명을 저장하기까지 여정 
-           //이 아래부터는 실제파일을 폴더에 저장하기 시작
-         byte[] fileData = file.getBytes(); //67번째줄 보드롸이트 파일(매개변수) 받음
-            File target = new File(uploadPath, saveName);//31~33 업로드 경로 변수값으로 받음 저장 될 위치 지정
-            FileCopyUtils.copy(fileData,target);
+    	 String[] files = fileUpload(file);
+    	 boardVO.setFiles(files); //셋으로 파일을 저장했기때문에 보낼 수 있음.
+         boardService.insertBoard(boardVO);      
       }
-  
        rdat.addFlashAttribute("msg", "입력");
       return "redirect:/admin/board/list";
    }
    
    /**
-    * 게시물관리 > 수정 입니다.
-    * @throws Exception 
-    */
-   @RequestMapping(value = "/admin/board/update", method = RequestMethod.GET)
-   public String boardUpdate(@RequestParam("bno") Integer bno, Locale locale, Model model) throws Exception {
-      BoardVO boardVO = boardService.viewBoard(bno);
-      model.addAttribute("boardVO", boardVO);
-      return "admin/board/board_update";
-   }
-   @RequestMapping(value = "/admin/board/update", method = RequestMethod.POST)
-   public String boardUpdate(BoardVO boardVO,Locale locale, RedirectAttributes rdat) throws Exception {
-      boardService.updateBoard(boardVO);
-      rdat.addFlashAttribute("msg", "수정");
-      return "redirect:/admin/board/view?bno=" + boardVO.getBno();
-   }
-   
-   /**
+	 * 게시물관리 > 수정 입니다.
+	 * @throws Exception 
+	 */
+	@RequestMapping(value = "/admin/board/update", method = RequestMethod.GET)
+	public String boardUpdate(@RequestParam("bno") Integer bno, Locale locale, Model model) throws Exception {
+		BoardVO boardVO = boardService.viewBoard(bno);
+		model.addAttribute("boardVO", boardVO);
+		return "admin/board/board_update";
+	}
+	@RequestMapping(value = "/admin/board/update", method = RequestMethod.POST)
+	public String boardUpdate(MultipartFile file,BoardVO boardVO,Locale locale, RedirectAttributes rdat) throws Exception {
+		if(file.getOriginalFilename() == "") {
+			boardService.updateBoard(boardVO);
+		}else {
+			//이전 첨부파일 삭제처리(아래)
+			List<String> delFiles = boardService.selectAttach(boardVO.getBno());
+			for(String fileName : delFiles) {
+				//실제파일삭제
+				File target = new File(uploadPath, fileName);
+				if(target.exists()) { //해당경로에 파일명이 존재한다면
+					target.delete();  //파일을 삭제하겠다
+				}// end if
+			}//end for
+			//아래에서 부터 신규 파일 업로드
+			String[] files = fileUpload(file);	 //실제파일업로드후 파일명 리턴 		
+			boardVO.setFiles(files); //데이터베이스 <-> vo(get,set) -dao클래스
+			boardService.updateBoard(boardVO);
+		}
+		
+		
+		rdat.addFlashAttribute("msg", "수정");
+		return "redirect:/admin/board/view?bno=" + boardVO.getBno();
+	}
+		/**
     * 게시물관리 > 삭제 입니다.
     * @throws Exception 
     */
@@ -150,8 +173,7 @@ public class AdminController {
      target.delete();
             }
          }
-         
-       
+     
       rdat.addFlashAttribute("msg", "삭제");
       return "redirect:/admin/board/list";
    }

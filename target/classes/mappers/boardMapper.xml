@@ -40,12 +40,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="viewBoard" resultType="org.edu.vo.BoardVO">
 		select * from tbl_board where bno = #{bno}
 	</select>
-	<!-- 첨부파일 MySql용
+	<!-- 첨부파일 MySql용 -->
    <insert id="addAttach">
    insert into tbl_attach(full_name, bno) values (#{fullname}, LAST_INSERT_ID())
    </insert>
-   -->
-   <!-- 첨부파일 Hsql용 -->
+  
+   <!-- 첨부파일 Hsql용 
    <insert id="insertAttach">
    insert into tbl_attach(full_name,bno) values (#{fullname},(select top 1 bno from tbl_board order by bno desc) )
    </insert>
@@ -55,5 +55,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    <delete id="deleteAttach">
    delete from tbl_attach where bno = #{bno}
    </delete>
-   
+   <insert id="updateAttach">
+   insert into tbl_attach(full_name, bno) values (#{fullname}, #{bno})
+   </insert>-->
 </mapper>
