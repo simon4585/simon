@@ -1,5 +1,7 @@
 package kr.or.test;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner; //스캐너를 쓰려면 임포트 문을 써야함.
 
 class Tire {
@@ -14,9 +16,21 @@ class SnowTire extends Tire{ //부모 설정 extends 부모클래스
 	}
 }
 
-public class HelloWorld1 {
+public class HelloWorld {
 
 	public static void main(String[] args) { 
+		List<String> files = new ArrayList<>();
+		files.add("sample1.jpg");
+		files.add("sample2.jpg");
+		files.add("sample3.jpg");
+		String[] filenames = new String[files.size()];
+		int cnt = 0;
+		for(String fileName : files ) {
+			filenames[cnt++] = fileName;
+			
+		}
+		System.out.println(filenames[0] + filenames[1] + filenames[2]);
+		
 		//SnowTire 클래스형 변수 SnowTire 생성
 		//new 키워드로 SnowTire()	메서드를 이용해서
 		//snowTire 인스턴스클래스(메모리공간할당) 실행된 상태(아래)
