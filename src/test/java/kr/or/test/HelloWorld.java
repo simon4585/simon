@@ -19,6 +19,24 @@ class SnowTire extends Tire{ //부모 설정 extends 부모클래스
 public class HelloWorld {
 
 	public static void main(String[] args) { 
+		//(page:jsp클릭변수 -1) * perPageNum:페이지당 보여 줄 개수 ;
+		int startBno = (1 - 1) *10; //1페이지
+		System.out.println("쿼리변수(1page - 1) * perPageNum = " + startBno);
+		startBno = (2 - 1) *10; //2페이지
+		System.out.println("쿼리변수(2page - 1) * perPageNum = " + startBno);
+		startBno = (3 - 1) *10; //3페이지
+		System.out.println("쿼리변수(3page - 1) * perPageNum = " + startBno);
+	
+				
+				//천장함수 사용법
+		int endPage =(int)(Math.ceil(1/10.0)*10);
+	    System.out.println("Math.ceil(1page/10.0)*10 = "+ endPage);
+	    endPage =(int)(Math.ceil(1/10.0)*10);
+	    System.out.println("Math.ceil(2page/10.0)*10 = "+ endPage);
+	    endPage =(int)(Math.ceil(1/10.0)*10);
+	    System.out.println("Math.ceil(3page/10.0)*10 = "+ endPage);
+	    
+	    
 		List<String> files = new ArrayList<>();
 		files.add("sample1.jpg");
 		files.add("sample2.jpg");

@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.edu.dao.IF_BoardDAO;
 import org.edu.vo.BoardVO;
+import org.edu.vo.PageVO;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,16 +22,16 @@ public class BoardServiceImpl implements IF_BoardService{
       boardDAO.insertBoard(boardVO);
       //첨부파일용 서비스 추가
       String[] files = boardVO.getFiles();
-      if(files == null) {return; }
+      if(files == null) {return;}
       for(String fileName : files) {
          boardDAO.insertAttach(fileName);
       }
    }
 
    @Override
-   public List<BoardVO> selectBoard() throws Exception {
+   public List<BoardVO> selectBoard(PageVO pageVO) throws Exception {
       
-      return boardDAO.selectBoard();
+      return boardDAO.selectBoard(pageVO);
    }
 
    @Transactional
@@ -62,6 +63,11 @@ public class BoardServiceImpl implements IF_BoardService{
 @Override
 public List<String> selectAttach(Integer bno) throws Exception {
    return boardDAO.selectAttach(bno);
+}
+
+@Override
+public int countBno(PageVO pageVO) throws Exception {
+   return boardDAO.countBno(pageVO);
 }
 
  

@@ -8,6 +8,7 @@ import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.edu.vo.BoardVO;
+import org.edu.vo.PageVO;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -23,9 +24,8 @@ public void insertBoard(BoardVO boardVO) throws Exception {
    
 }
 @Override
-public List<BoardVO> selectBoard() throws Exception {
-   // TODO Auto-generated method stub
-   return sqlSession.selectList(mapperQuery + ".selectBoard");
+public List<BoardVO> selectBoard(PageVO pageVO) throws Exception {
+   return sqlSession.selectList(mapperQuery + ".selectBoard", pageVO);
 }
 @Override
 public void updateBoard(BoardVO boardVO) throws Exception {
@@ -62,6 +62,10 @@ public void updateAttach(String fullName, Integer bno) throws Exception {
 	paramMap.put("bno", bno);
 	paramMap.put("fullname", fullName);
 	sqlSession.update(mapperQuery +".updateAttach", paramMap);
+}
+@Override
+public int countBno(PageVO pageVO) throws Exception {
+	return sqlSession.selectOne(mapperQuery +".countBno", pageVO);
 }
 
  

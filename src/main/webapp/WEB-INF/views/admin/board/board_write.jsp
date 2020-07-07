@@ -38,7 +38,7 @@
 										<div class="form-group">
 											<label>Title</label> 
 											<input name="title" type="text" class="form-control"
-												placeholder="Enter Title">
+												placeholder="Enter Title" required>
 										</div>
 									</div>
 									<div class="col-sm-12">
