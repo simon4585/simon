@@ -33,4 +33,17 @@
        </beans:constructor-arg>
    </beans:bean>
    
+   <!-- 업로드한 파일이 저장되는 위치: 운영서버에 올릴떄는 /temp. -->
+   <beans:bean id="uploadPath" class="java.lang.String">
+       <beans:constructor-arg value="C:\\egov\\workspace\\upload">
+       </beans:constructor-arg>
+   </beans:bean>
+   
+   <!-- 업로드한 파일이 저장되는 위치: 로컬pc용 /temp. 
+   <beans:bean id="uploadPath" class="java.lang.String">
+       <beans:constructor-arg value="C:\\egov\\workspace\\upload">
+       </beans:constructor-arg>
+   </beans:bean>-->
+   
+   
 </beans:beans>
