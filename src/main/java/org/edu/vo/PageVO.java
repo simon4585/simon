@@ -1,7 +1,7 @@
 package org.edu.vo;
 
 public class PageVO {
-   private int startBno;//내장형 변수 쿼리에서 필요함
+   private int StartNo;//게시판테이블,회원테이블의 필드와는 직접관계없음 . 
    private int perPageNum;//내장형 변수 쿼리에서 필요함
    private Integer page;//(클래스형 변수) jsp단에서 null로 값이 올때 에러가 발생하지 않도록 Integer사용
    private int totalCount;
@@ -38,7 +38,7 @@ private void calcPage() {
       //jsp에서 클릭한 페이지 번호를 기준으로 끝 페이지를 계산한다.
       this.startPage = tempEnd - 9;
       //시작 페이지 계산 클릭한 page번호 10일때 까지 시작페이지는 1
-      if(tempEnd*10 > this.totalCount) {
+      if(tempEnd * 10 > this.totalCount) {
          //클릭한 page번호로 계산된 게시물수가 실제 게시물 개수 totalCount 클때
          this.endPage = (int)Math.ceil(this.totalCount/10.0);
       }else {
@@ -50,8 +50,7 @@ private void calcPage() {
       //클릭한 page번호로 계산된 게시물수가 실제 게시물 개수보다 작다면 다음페이지가 있음. true
    }
    
-   
-   
+  
    public int getTotalCount() {
       return totalCount;
    }
@@ -89,13 +88,13 @@ private void calcPage() {
    public void setPage(Integer page) {
       this.page = page;
    }
-   public int getStartBno() {
+   public int getStartNo() {
       //DB쿼리에서 사용.. 시작데이터번호 = (jsp 클릭한 페이지번호 -1)*페이지당 보여지는 개수
-      startBno = (page - 1) * perPageNum;
-      return startBno;
+	   StartNo = (page - 1) * perPageNum;
+      return StartNo;
    }
-   public void setStartBno(int startBno) {
-      this.startBno = startBno;
+   public void setStartNo(int StartNo) {
+      this.StartNo = StartNo;
    }
    public int getPerPageNum() {
       return perPageNum;
