@@ -4,6 +4,9 @@ import java.util.List;
 
 import org.edu.vo.BoardVO;
 import org.edu.vo.PageVO;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
+
 
 public interface IF_BoardDAO {
    public void insertBoard(BoardVO boardVO) throws Exception;
@@ -16,4 +19,5 @@ public interface IF_BoardDAO {
    public void deleteAttach(Integer bno) throws Exception;
    public void updateAttach(String fullName, Integer bno) throws Exception;
    public int countBno(PageVO pageVO) throws Exception;
+   public void updateViewCnt(Integer bno) throws Exception;
 }

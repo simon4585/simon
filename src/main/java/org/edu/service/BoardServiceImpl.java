@@ -8,6 +8,7 @@ import org.edu.dao.IF_BoardDAO;
 import org.edu.vo.BoardVO;
 import org.edu.vo.PageVO;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
@@ -57,6 +58,7 @@ public class BoardServiceImpl implements IF_BoardService{
 
    @Override
    public BoardVO viewBoard(Integer bno) throws Exception {
+	   boardDAO.updateViewCnt(bno);
       return boardDAO.viewBoard(bno);
    }
 
@@ -70,7 +72,9 @@ public int countBno(PageVO pageVO) throws Exception {
    return boardDAO.countBno(pageVO);
 }
 
- 
+
+
+
    //private String name = new String("홍길동");
    //간단하게 나타내는것 처럼 할 수 있다. 
    /*옛날 방식
