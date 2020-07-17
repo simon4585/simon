@@ -24,6 +24,7 @@ if('${msg}'!= ""){
 	alert("${msg}에 성공하였습니다.!");	
 }
 </script>
+
 </head>
 <body>
 <ul class="skipnavi">

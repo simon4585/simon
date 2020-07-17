@@ -15,6 +15,7 @@ import org.springframework.stereotype.Repository;
 public class BoardDAOImpl implements IF_BoardDAO {
 
    private static String mapperQuery = "org.edu.dao.IF_BoardDAO";
+   
    @Inject
    private SqlSession sqlSession;
    
