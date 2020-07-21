@@ -1,10 +1,13 @@
 package org.edu.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
 import org.edu.service.IF_ReplyService;
+import org.edu.vo.PageVO;
 import org.edu.vo.ReplyVO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * REST API 서비스(댓글서비스)==REST FULL 서비스
- * @author Administrator
+ * @author hu-400
  *
  */
 @RestController
@@ -25,50 +28,43 @@ public class ReplyController {
    @Inject
    private IF_ReplyService replyService;
    
-   
    /**
     * 댓글 삭제 서비스
-    */                  //경로에 변수를 집어넣는 방법 {}
-   @RequestMapping(value="/delete/{rno}", method= RequestMethod.DELETE) 
-        //ResponseEntity<String> 이거때문에 제이슨 형태로 변환됨
+    */
+   @RequestMapping(value="/delete/{rno}", method= RequestMethod.DELETE)
    public ResponseEntity<String> deleteReply(@PathVariable("rno") Integer rno){
-	                                        //경로를 변수로 받기때문에 추가 
-	   ResponseEntity<String> entity = null;
+      ResponseEntity<String> entity = null;
       try {
- 
          replyService.deleteReply(rno);
          entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
       } catch (Exception e) {
          e.printStackTrace();
-         entity =  new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
+         entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
       }
       return entity;//JSON데이터를 리턴(jsp페이지로)
-   }      
-   
+   }
    
    /**
     * 댓글 수정 서비스
-    */                  //경로에 변수를 집어넣는 방법 {}
-   @RequestMapping(value="/update/{rno}", method= {RequestMethod.PUT,RequestMethod.PATCH}) 
- //ResponseEntity<String> 이거때문에 제이슨 형태로 변환됨
+    */
+   @RequestMapping(value="/update/{rno}", method= {RequestMethod.PUT,RequestMethod.PATCH})
    public ResponseEntity<String> updateReply(@PathVariable("rno") Integer rno, @RequestBody ReplyVO replyVO){
-	                                         //경로를 변수로 받기때문에 추가  @RequestBody를 쓰는 순간 제이슨데이터로 받겠다.
-	   ResponseEntity<String> entity = null;
+      ResponseEntity<String> entity = null;
       try {
          replyVO.setRno(rno);
          replyService.updateReply(replyVO);
          entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
       } catch (Exception e) {
          e.printStackTrace();
-         entity =  new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
+         entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
       }
       return entity;//JSON데이터를 리턴(jsp페이지로)
-   }      
+   }
    
    /**
     * 댓글 입력 서비스
     */
-   @RequestMapping(value="/insert", method=RequestMethod.POST) 
+   @RequestMapping(value="/insert", method=RequestMethod.POST)
    public ResponseEntity<String> insertReply(@RequestBody ReplyVO replyVO){
       ResponseEntity<String> entity = null;
       try {
@@ -76,24 +72,43 @@ public class ReplyController {
          entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
       } catch (Exception e) {
          e.printStackTrace();
-         entity =  new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
+         entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
       }
       return entity;//JSON데이터를 리턴(jsp페이지로)
-   }      
+   }
    /**
     * 댓글 리스트 서비스
     * @param bno
     * @return
+    * @throws Exception 
     */
-   @RequestMapping(value="/select/{bno}", method=RequestMethod.GET)
-   public ResponseEntity<List<ReplyVO>> selectReply(@PathVariable("bno") Integer bno){
-      ResponseEntity<List<ReplyVO>> entity = null;
-         try {
-      entity = new ResponseEntity<>(replyService.selectReply(bno), HttpStatus.OK);
-   } catch (Exception e) {
-      e.printStackTrace();
-      entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+   @RequestMapping(value="/select/{bno}/{page}", method=RequestMethod.GET)
+   public ResponseEntity<Map<String,Object>> selectReply(@PathVariable("page") Integer page,@PathVariable("bno") Integer bno) throws Exception {
+      ResponseEntity<Map<String,Object>> entity = null;
+      PageVO pageVO = new PageVO();
+      pageVO.setPage(page);
+      pageVO.setPerPageNum(10);
+      pageVO.setTotalCount(replyService.countRno(bno));
+      //replyVO리스트(댓글 리스트), pageVO클래스(페이지번호  변수)
+      //Map > HashMap
+      Map<String,Object> resultMap = new HashMap<String,Object>();
+      resultMap.put("replyList", replyService.selectReply(bno, pageVO));
+      resultMap.put("pageVO", pageVO);
+      //Map변수=데이터형 [{'key':'List<>'},{'key':'Class'},{'':''},...]
+      try {
+         entity = new ResponseEntity<Map<String,Object>>(resultMap, HttpStatus.OK);
+      } catch (Exception e) {
+         e.printStackTrace();
+         entity = new ResponseEntity<Map<String,Object>>(HttpStatus.BAD_REQUEST);
+      }
+      return entity;
    }
-    return entity;
-}
+   
+   
+   
+   
+   
+   
+   
+   
 }
